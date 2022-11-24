@@ -1,0 +1,11 @@
+.danger{
+  background-color: red;
+}
+
+.warning{
+  background-color: yellow;
+}
+
+.default{
+  background-color: lightblue;
+}
