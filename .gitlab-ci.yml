@@ -1,7 +1,13 @@
 image: node:19-alpine3.15
 
 stages:
+  - printing
   - test
+
+ngetes-print:
+  stage: printing
+  script:
+    - echo "Hi Guys Saya Gitlab CICD"
 
 testing-lint:
   stage: test
