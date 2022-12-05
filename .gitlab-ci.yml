@@ -1,0 +1,10 @@
+image: node:19-alpine3.15
+
+stages:
+  - test
+
+testing-lint:
+  stage: test
+  script:
+    - npm install
+    - npm run lint
