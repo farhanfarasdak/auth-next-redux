@@ -46,7 +46,7 @@ const LandingPage = () => {
     <div>
       <div className={style.container}>
         <div className={style.box}>
-          <h2>Login</h2>
+          <h2>Login PAGE</h2>
           <input
             placeholder='email'
             onChange={(e) => setLoginEmail(e.target.value)}
