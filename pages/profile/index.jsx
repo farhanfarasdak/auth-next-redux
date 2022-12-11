@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/button';
+import DynamicPDF from '../../components/dynamicPDF';
+import PDF from '../../components/pdf';
 import { retrieveUserById } from '../../redux/reducer/user';
 import { insertUserBiodata, uploadUserImage } from '../../util/user';
 import { validateUser } from '../../util/validateUser';
@@ -73,6 +75,10 @@ function Profile() {
         Age :
         {userData.age}
       </h3>
+      <div>
+        <h3> Auto Generated CV : </h3>
+        <DynamicPDF userData={userData} />
+      </div>
       <Button title="Save" onClick={handleSubmit} color="yellow" />
       <Link href="/game">
         <h5>Go To Game Page</h5>

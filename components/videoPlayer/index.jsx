@@ -2,6 +2,7 @@
 import { Component } from 'react';
 import { ControlBar, Player } from 'video-react';
 import Button from '../button';
+import style from './videoPlayer.module.css';
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class VideoPlayer extends Component {
   }
 
   componentDidMount() {
-    this.player.subscribeToStateChange(this.handleStateChange.bind(this));
+    // this.player.subscribeToStateChange(this.handleStateChange.bind(this));
   }
 
   setMuted(muted) {
@@ -29,11 +30,11 @@ class VideoPlayer extends Component {
     };
   }
 
-  handleStateChange(state) {
-    this.setState({
-      player: state,
-    });
-  }
+  // handleStateChange(state) {
+  //   this.setState({
+  //     player: state,
+  //   });
+  // }
 
   play() {
     this.player.play();
@@ -70,7 +71,6 @@ class VideoPlayer extends Component {
   changeVolume(steps) {
     return () => {
       const { player } = this.player.getState();
-      console.log(player.volume);
       this.player.volume = player.volume + steps;
     };
   }
@@ -78,7 +78,7 @@ class VideoPlayer extends Component {
   render() {
     const { source } = this.state;
     return (
-      <div>
+      <div className={style.playerRoom}>
         <Player
           ref={(player) => {
             this.player = player;
