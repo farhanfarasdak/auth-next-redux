@@ -6,7 +6,7 @@ import Button from '../../components/button';
 import DynamicPDF from '../../components/dynamicPDF';
 import PDF from '../../components/pdf';
 import { retrieveUserById } from '../../redux/reducer/user';
-import { insertUserBiodata, uploadUserImage } from '../../util/user';
+import { insertUserBiodata, uploadUserImage, uploadUserImageCloudinary } from '../../util/user';
 import { validateUser } from '../../util/validateUser';
 import style from './Profile.module.css';
 
@@ -15,7 +15,7 @@ function Profile() {
   const dispatch = useDispatch();
 
   const [imgFile, setImgFile] = useState();
-  const [tempImgUrl, setTempImgUrl] = useState('https://img.freepik.com/premium-vector/user-icon_6091-78.jpg');
+  const [tempImgUrl, setTempImgUrl] = useState(null);
 
   const userData = useSelector((state) => state.userReducer);
 
@@ -31,7 +31,8 @@ function Profile() {
   }, []);
 
   const handleSubmit = async () => {
-    const url = await uploadUserImage(imgFile);
+    // const url = await uploadUserImage(imgFile);
+    const url = await uploadUserImageCloudinary(imgFile);
 
     const data = {
       age: userData.age,
@@ -60,7 +61,7 @@ function Profile() {
     <div>
       <h1>My Profile</h1>
       <div>
-        <img className={style.imgProfile} src={userData.profileUrl || tempImgUrl} alt="http://mygambar.jpg" />
+        <img className={style.imgProfile} src={tempImgUrl || userData.profileUrl} alt="http://mygambar.jpg" />
       </div>
       <input type="file" onChange={handleImageChange} />
       <h3>

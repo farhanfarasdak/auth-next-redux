@@ -19,13 +19,16 @@ function PDF({ userData }) {
   }, []);
 
   return (
-    <PDFViewer>
-      <Document>
+    <PDFViewer width="75%" height="750px">
+      <Document title="CV">
         <Page style={styles.body}>
           <View>
             <Image style={{ width: '100px' }} src={userData.profileUrl} />
           </View>
-          <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+          <View style={{
+            display: 'flex', justifyContent: 'center', flexDirection: 'column', marginTop: '20px',
+          }}
+          >
             <Text wrap={false}>
               Email :
               {' '}
