@@ -2,6 +2,7 @@
 //   json: () => ({ weight: 60 }),
 // }));
 
+import { set } from 'firebase/database';
 import { insertUserBiodata } from './user';
 
 // test('call pokemon api successfully', async () => {
@@ -13,9 +14,11 @@ import { insertUserBiodata } from './user';
 //   ).toEqual(expect.objectContaining({ weight: 60 }));
 // });
 
-// jest.mock('firebase/database', () => {
-//   set: () => ({value: 'here'})
-// });
+jest.mock('firebase/database', () => ({
+  set: () => {},
+  ref: () => {},
+  getDatabase: () => {},
+}));
 
 test('successfully insert biodata', async () => {
   const id = 'someidhere';
