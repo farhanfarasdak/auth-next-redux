@@ -4,9 +4,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/button';
 import DynamicPDF from '../../components/dynamicPDF';
-import PDF from '../../components/pdf';
 import { retrieveUserById } from '../../redux/reducer/user';
-import { insertUserBiodata, uploadUserImage, uploadUserImageCloudinary } from '../../util/user';
+import { insertUserBiodata, uploadUserImageCloudinary } from '../../util/user';
 import { validateUser } from '../../util/validateUser';
 import style from './Profile.module.css';
 

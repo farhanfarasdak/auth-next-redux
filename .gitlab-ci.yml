@@ -18,7 +18,13 @@ ngetes-print:
 
 testing-lint:
   stage: test
-  when: manual
   script:
     - npm install
     - npm run lint
+
+unit-test:
+  stage: test
+  script:
+    - npm install
+    - npm run test
+

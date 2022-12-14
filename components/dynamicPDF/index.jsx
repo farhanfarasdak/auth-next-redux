@@ -6,6 +6,7 @@ const DynamicDocument = dynamic(() => import('../pdf'), {
 });
 
 function DynamicPDF({ userData }) {
+  // eslint-disable-next-line no-unused-vars
   const [client, setClient] = useState(false);
 
   useEffect(() => {

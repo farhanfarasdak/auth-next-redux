@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import {
-  Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font,
+  Document, Page, View, Text, Image, PDFViewer, StyleSheet,
 } from '@react-pdf/renderer';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
 });
 
 function PDF({ userData }) {
+  // eslint-disable-next-line no-unused-vars
   const [client, setClient] = useState(false);
 
   useEffect(() => {
